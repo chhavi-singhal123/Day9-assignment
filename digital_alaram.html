@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Alarm Assistant</title>
+</head>
+<body>
+    <script>
+    function setAlarm(time, message) {
+        const now = new Date();
+        const alarmTime = new Date(time);
+        const timeDifference = alarmTime - now;
+        if (timeDifference <= 0) {
+            console.log("Alarm time must be in the future.");
+            return;
+        }
+        console.log(`Alarm set for ${alarmTime.toLocaleString()}`);
+        setTimeout(() => {
+            console.log(`${message}`);
+            alert(`${message}`);
+        }, timeDifference);
+    }
+    setAlarm("2025-06-24T10:30:00", "Time for your meeting!");
+    </script>
+</body>
+</html>
